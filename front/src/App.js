@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import './App.css';
 import Form from './Form';
 import Table from './Table';
 
 function App() {
-  return (
-    <div className="App">
 
-      <Form/>
-      <Table/>
-      
+
+  const [btnCadastrar, setBtnCadastrar] = useState(true);
+
+
+  return (
+    <div>
+
+      <Form botao={btnCadastrar} />
+      <Table />
+
     </div>
   );
 }
