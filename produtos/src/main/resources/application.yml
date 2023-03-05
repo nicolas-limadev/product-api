@@ -1,0 +1,35 @@
+#arquivo de configuracoes local/default
+
+#port config
+server:
+  port: 8090
+
+spring:
+  application:
+    name: "spring_react"
+
+#database config
+  datasource:
+    url: jdbc:postgresql://localhost:15432/spring_react?currentSchema=public
+    username: "admin"
+    password: "admin"
+    driver-class-name: "org.postgresql.Driver"
+    hikari:
+      schema: public
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+#flyway config
+  flyway:
+    locations: "db/migration"
+    baseline-on-migrate: false
+
+#devtools config
+  devtools:
+    restart:
+      enabled: true
