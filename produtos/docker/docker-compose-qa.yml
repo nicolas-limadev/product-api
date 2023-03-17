@@ -17,7 +17,7 @@ services:
 
   spring-react:
     container_name: spring-react
-    image: spring-react-api:latest
+    image: springreact-docker:latest
     environment:
       SERVER_PORT: 3000
       SPRING_PROFILES_ACTIVE: qa

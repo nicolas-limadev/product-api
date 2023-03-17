@@ -7,7 +7,7 @@ server:
 #profile config
 spring:
   application:
-    name: "contactbook"
+    name: "spring_react"
 
   config:
     activate:
@@ -16,7 +16,7 @@ spring:
 
   #database config
   datasource:
-    url: jdbc:postgresql://postgres-db:5432/contactbook?currentSchema=public
+    url: jdbc:postgresql://postgres-db:5432/spring_react?currentSchema=public
     username: "admin"
     password: "admin"
     driver-class-name: "org.postgresql.Driver"
