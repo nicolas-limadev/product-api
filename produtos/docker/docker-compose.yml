@@ -27,7 +27,7 @@ services:
     depends_on:
       - postgres-db
     networks:
-      - docker-network
+      - pg-db-network
     restart: always
 
 networks:
