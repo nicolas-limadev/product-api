@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.produtos.model.ProdutoModel;
 import com.api.produtos.model.RespostaModel;
+import com.api.produtos.Repository.ProdutoRepository;
 import com.api.produtos.service.ProdutoService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
 @CrossOrigin(origins = "*")
 public class ProdutoController {
     
     @Autowired
     private ProdutoService produtoService;
+    private ProdutoRepository produtoRepository;
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrar(@RequestBody ProdutoModel produtoModel){
@@ -48,6 +53,7 @@ public class ProdutoController {
     @DeleteMapping("/remover/{code}")
     public ResponseEntity<RespostaModel> excluir(@PathVariable long code){
 
-        return produtoService.remover(code);
+       return produtoService.remover(code);
+
     }
 }

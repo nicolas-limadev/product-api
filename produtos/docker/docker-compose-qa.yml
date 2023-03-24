@@ -17,13 +17,13 @@ services:
 
   spring-react:
     container_name: spring-react
-    image: springreact-docker:latest
+    image: nicklimadev/springreact-docker:latest
     environment:
-      SERVER_PORT: 3000
+      SERVER_PORT: 8000
       SPRING_PROFILES_ACTIVE: qa
       TZ: "America/Sao_Paulo"
     ports:
-      - "80:3000"
+      - "80:8000"
     depends_on:
       - postgres-db
     networks:
