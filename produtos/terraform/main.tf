@@ -52,20 +52,20 @@ resource "aws_route_table_association" "springreact_rtb_ass" {
 
 resource "aws_instance" "springreact_ec2" {
 
-    instance_type = "t2.micro"
-    key_name = aws_key_pair.springreact-key.id
-    vpc_security_group_ids = [aws_security_group.springreact_sg.id]
-    subnet_id = aws_subnet.springreact_subnet.id
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.springreact-key.id
+  vpc_security_group_ids = [aws_security_group.springreact_sg.id]
+  subnet_id              = aws_subnet.springreact_subnet.id
 
-    ami = data.aws_ami.springreact_ami.id
+  ami = data.aws_ami.springreact_ami.id
 
-    user_data = file("userdata.tpl")
+  user_data = file("userdata.tpl")
 
-    root_block_device {
-      volume_size = 8
-    }
-  
-    tags = {
-      "Name" = "springreact_ec2"
-    }
+  root_block_device {
+    volume_size = 8
+  }
+
+  tags = {
+    "Name" = "springreact_ec2"
+  }
 }

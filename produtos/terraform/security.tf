@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "srg_ssh_input" {
 
 resource "aws_key_pair" "springreact-key" {
 
-    key_name = "springreact-key"
-    public_key = file("~/.ssh/springreact-key.pub")
-  
+  key_name   = "springreact-key"
+  public_key = file("~/.ssh/springreact-key.pub")
+
 }

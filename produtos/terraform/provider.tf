@@ -9,7 +9,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
-  profile = "springreact-docker-at-169752714002"
+  profile                  = "springreact-docker-at-169752714002"
 }
