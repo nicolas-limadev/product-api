@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.produtos.Repository.ProdutoRepository;
 import com.api.produtos.model.ProdutoModel;
 import com.api.produtos.model.RespostaModel;
-import com.api.produtos.Repository.ProdutoRepository;
 import com.api.produtos.service.ProdutoService;
 
 import lombok.AllArgsConstructor;
@@ -22,38 +22,44 @@ import lombok.AllArgsConstructor;
 @RestController
 @CrossOrigin(origins = "*")
 public class ProdutoController {
-    
+
     @Autowired
     private ProdutoService produtoService;
     private ProdutoRepository produtoRepository;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModel produtoModel){
+    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModel produtoModel) {
 
         return produtoService.cadastrarAlterar(produtoModel, "cadastrar");
     }
 
     @PutMapping("/alterar")
-    public ResponseEntity<?> alterar(@RequestBody ProdutoModel produtoModel){
+    public ResponseEntity<?> alterar(@RequestBody ProdutoModel produtoModel) {
 
         return produtoService.cadastrarAlterar(produtoModel, "alterar");
     }
 
     @GetMapping("/listar")
-    public Iterable<ProdutoModel> listar(){
+    public Iterable<ProdutoModel> listar() {
         return produtoService.listar();
     }
 
     @GetMapping("/")
-    public String rota(){
+    public String rota() {
 
         return "API de produtos funcionando!";
     }
 
     @DeleteMapping("/remover/{code}")
-    public ResponseEntity<RespostaModel> excluir(@PathVariable long code){
+    public ResponseEntity<RespostaModel> excluir(@PathVariable long code) {
 
-       return produtoService.remover(code);
+        if (produtoRepository.existsById(code)) {
+
+           return produtoService.remover(code);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
 
     }
 }
