@@ -57,10 +57,13 @@ resource "aws_instance" "springreact_ec2" {
     vpc_security_group_ids = [aws_security_group.springreact_sg.id]
     subnet_id = aws_subnet.springreact_subnet.id
 
+    ami = data.aws_ami.springreact_ami.id
+
+    user_data = file("userdata.tpl")
+
     root_block_device {
       volume_size = 8
     }
-    ami = data.aws_ami.springreact_ami.id
   
     tags = {
       "Name" = "springreact_ec2"
