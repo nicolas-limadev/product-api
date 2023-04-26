@@ -20,7 +20,7 @@ function App() {
 
   // UseEffect
   useEffect(() => {
-    fetch("http://ec2-3-89-73-24.compute-1.amazonaws.com/listar")
+    fetch("http://localhost:80/listar")
       .then(retorno => retorno.json())
       .then(retorno_converted => setProdutos(retorno_converted));
   }, []);
@@ -31,7 +31,7 @@ function App() {
   }
   // Cadastrar produto
   const cadastrar = () => {
-    fetch('http://ec2-3-89-73-24.compute-1.amazonaws.com/cadastrar', {
+    fetch('http://localhost:80/cadastrar', {
       method: 'post',
       body: JSON.stringify(objProduto),
       headers: {
@@ -53,7 +53,7 @@ function App() {
 
   // Alterar produto
   const alterar = () => {
-    fetch('http://ec2-3-89-73-24.compute-1.amazonaws.com/alterar', {
+    fetch('http://localhost:80/alterar', {
       method: 'put',
       body: JSON.stringify(objProduto),
       headers: {
@@ -91,7 +91,7 @@ function App() {
 
   // Remover produto
   const remover = () => {
-    fetch('http://ec2-3-89-73-24.compute-1.amazonaws.com/remover/' + objProduto.code, {
+    fetch('http://localhost:80/remover/' + objProduto.code, {
       method: 'delete',
       headers: {
         'Content-type': 'application/json',
