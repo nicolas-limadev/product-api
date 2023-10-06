@@ -12,6 +12,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.mvn
 
 ### IntelliJ IDEA ###
 .idea
@@ -48,6 +49,9 @@ build/
 /node_modules
 /.pnp
 .pnp.js
+.npm/
+.config/
+.cache
 
 # testing
 /coverage
