@@ -31,7 +31,7 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+.vscode
 
 ### Terraform ###
 .terraform/
@@ -46,7 +46,7 @@ build/
 *.tfvars
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 .npm/
